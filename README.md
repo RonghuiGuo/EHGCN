@@ -6,7 +6,9 @@
 
 This is the Pytorch implementation for our paper:
 
-> Li, X., Guo, R., Chen, J. *et al.* Effective hybrid graph and hypergraph convolution network for collaborative filtering. *Neural Comput & Applic* (2022).
+> Li, X., Guo, R., Chen, J. *et al.* Effective hybrid graph and hypergraph convolution network for collaborative filtering. *Neural Comput & Applic* (2022).[Paper](https://link.springer.com/article/10.1007/s00521-022-07735-y)
+
+
 
 
 ## Dataset
