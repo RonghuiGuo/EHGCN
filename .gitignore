@@ -3,7 +3,7 @@ code/log
 code/logs
 *.npz
 *.pt
-.sh
-.out
+*.sh
+*.out
 ref_code
 
