@@ -1,0 +1,72 @@
+/home/lixunkai/RS-Code/myCode/code/dataloader.py:161: UserWarning: This overload of nonzero is deprecated:
+	nonzero()
+Consider using one of the following signatures instead:
+	nonzero(*, bool as_tuple) (Triggered internally at  /pytorch/torch/csrc/utils/python_arg_parser.cpp:766.)
+  index = dense.nonzero()
+>>SEED: 2020
+world.dataset:lastfm
+load lastfm
+[0;30;43mloading [last fm][0m
+LastFm Sparsity : 0.006201205012770235
+===========config================
+{'A_n_fold': 100,
+ 'A_split': False,
+ 'EGHG_n_layers': 12,
+ 'Hadj': 1.0,
+ 'alpha': 1,
+ 'beta': 1,
+ 'bigdata': False,
+ 'bpr_batch_size': 2048,
+ 'cache': 1,
+ 'decay': 0.0001,
+ 'dropadj': 0.2,
+ 'dropout': 0,
+ 'k': 0.5,
+ 'keep_prob': 0.6,
+ 'latent_dim_rec': 64,
+ 'load_adj': 'H_adj',
+ 'lr': 0.002,
+ 'mlp': 0,
+ 'multicore': 0,
+ 'pretrain': 0,
+ 'run_id': 1,
+ 'test_u_batch_size': 100}
+cores for test: 24
+comment: lgn
+LOAD: 0
+Weight path: ./checkpoints
+Test Topks: [20]
+using bpr loss
+===========end===================
+The GPU id is  6
+self.num_users <class 'int'>
+use xavier initilizer
+**************generate H_adj**************
+R (1892, 4489)
+A_u (1892, 1892)
+A_i (4489, 4489)
+1 --> set value in adj_mat from process HyperGraph?? u and i
+doing drop_scipy_matrix
+costing 4.12336540222168s, done drop_scipy_matrix with keep_prob = 0.2
+doing drop_scipy_matrix
+Traceback (most recent call last):
+  File "/home/lixunkai/RS-Code/myCode/code/dataloader.py", line 133, in getSparseGraph
+    self.Graph = self.Graph.coalesce().to(world.device)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "main.py", line 21, in <module>
+    Recmodel = register.MODELS[world.model_name](world.config, dataset)    
+  File "/home/lixunkai/RS-Code/myCode/code/model.py", line 89, in __init__
+    self.__init_weight()
+  File "/home/lixunkai/RS-Code/myCode/code/model.py", line 128, in __init_weight
+    self.Graph = self.dataset.getSparseGraph()  # all_adj_matrix (70839,70839)
+  File "/home/lixunkai/RS-Code/myCode/code/dataloader.py", line 200, in getSparseGraph
+    A_i = drop_scipy_matrix(A_i, keep_prob=world.config['dropadj'])
+  File "/home/lixunkai/RS-Code/myCode/code/myUtils.py", line 11, in drop_scipy_matrix
+    random_index = random.sample(range(0, nums), int(nums * (1-keep_prob)))
+  File "/home/lixunkai/anaconda3/envs/mytorch/lib/python3.6/random.py", line 331, in sample
+    pool[j] = pool[n-i-1]   # move non-selected item into vacancy
+KeyboardInterrupt
