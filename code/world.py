@@ -16,6 +16,7 @@ BOARD_PATH = join(ROOT_PATH, 'runs')
 FILE_PATH = join(ROOT_PATH, 'checkpoints')
 
 
+
 config = {}
 all_dataset = ['lastfm', 'gowalla', 'yelp2018', 'amazon']
 all_models  = ['mf', 'eghg']
